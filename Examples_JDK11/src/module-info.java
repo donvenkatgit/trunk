@@ -3,7 +3,7 @@
  */
 /**
  * @author venkat
- *
+ * edited from trunk
  */
 module lambda {
     // this module only needs types from the base module 'java.base';

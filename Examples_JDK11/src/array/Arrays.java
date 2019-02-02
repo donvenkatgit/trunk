@@ -23,8 +23,8 @@ public class Arrays {
 		List < String > listStrs = new ArrayList < String> ();
 		listStrs.add("VEnkat");listStrs.add("Saritha");listStrs.add("ok");listStrs.add("Gaytahri");
 		
-		List < String > listStrsNew = listStrs.stream() .map((@Notnull var s) -> s.toLowerCase()) .collect(Collectors.toList());
-		System.out.println(listStrsNew);
+		//List < String > listStrsNew = listStrs.stream() .map((@Notnull var s) -> s.toLowerCase()) .collect(Collectors.toList());
+		//System.out.println(listStrsNew);
 		
 		//String[] myNewArray = listInts.stream().toArray(intFunction);
 		//System.out.println(myNewArray);

@@ -28,6 +28,7 @@ public class Arrays {
 		
 		//String[] myNewArray = listInts.stream().toArray(intFunction);
 		//System.out.println(myNewArray);
+		
 	}
 
 }

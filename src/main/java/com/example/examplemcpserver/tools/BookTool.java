@@ -1,14 +1,16 @@
 package com.example.examplemcpserver.tools;
 
-import com.example.examplemcpserver.entity.Book;
-import com.example.examplemcpserver.service.BookService;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.ai.mcp.annotation.McpPrompt;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
+import com.example.examplemcpserver.entity.Book;
+import com.example.examplemcpserver.service.BookService;
 
 @Component
 public class BookTool {
@@ -103,6 +105,7 @@ public class BookTool {
         }
     }
     
+   // @McpPrompt(name = "my-prompt", description = "Give me a summary of my book collection")
     @Tool(name = "get_all_books", description = "Get all books in the library")
     public String getAllBooks() {
         try {
@@ -111,7 +114,7 @@ public class BookTool {
             if (books.isEmpty()) {
                 return "No books found in the library";
             }
-            
+            System.out.println("Retrieved " + books.size() + " books from the library");
             StringBuilder result = new StringBuilder("Books in the library:\n");
             for (Book book : books) {
                 result.append(String.format("ID: %d | '%s' by %s | Year: %d | Price: $%.2f\n", 

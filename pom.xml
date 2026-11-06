@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.3</version>
+		<version>4.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -28,13 +28,22 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<spring-ai.version>1.0.0</spring-ai.version>
+		<spring-ai.version>2.0.2</spring-ai.version>
+		<jackson.version>2.17.0</jackson.version>
+		
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.ai</groupId>
 			<artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.ai</groupId>
+		    <artifactId>spring-ai-mcp-annotations</artifactId>
+		    <version>2.0.0</version>
+		</dependency>
+		
 		
 		<!-- Spring Boot Data JPA -->
 		<dependency>
@@ -48,7 +57,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-h2console</artifactId>
+		</dependency>
 		
+
 		<!-- Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -65,8 +79,18 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		</dependencies>
+        <dependency>
+            <groupId>tools.jackson</groupId>
+            <artifactId>jackson-bom</artifactId>
+            <!-- Align with a modern version that includes the annotation -->
+            <version>3.2.4</version> 
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
 	</dependencyManagement>
+	
+
 
 	<build>
 		<plugins>

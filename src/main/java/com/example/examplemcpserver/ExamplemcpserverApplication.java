@@ -34,10 +34,13 @@ public class ExamplemcpserverApplication {
 				.build();
 	}
 	
+	/*
 	@Bean
 	public ToolCallbackProvider bookTools() {
 		return MethodToolCallbackProvider.builder()
 				.toolObjects(bookTool)
 				.build();
 	}
+	*/
+	
 }

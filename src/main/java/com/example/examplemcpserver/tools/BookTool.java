@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.ai.mcp.annotation.McpPrompt;
-import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class BookTool {
         this.bookService = bookService;
     }
     
-    @Tool(name = "add_book", description = "Add a new book to the library")
+    @McpTool(name = "add_book", description = "Add a new book to the library")
     public String addBook(String bookName, String author, Integer yearOfPublishing, Double price) {
         try {
             if (bookName == null || bookName.trim().isEmpty()) {
@@ -49,7 +48,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "remove_book", description = "Remove a book from the library by ID")
+    @McpTool(name = "remove_book", description = "Remove a book from the library by ID")
     public String removeBook(Long bookId) {
         try {
             if (bookId == null || bookId <= 0) {
@@ -75,7 +74,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "update_book", description = "Update an existing book in the library")
+    @McpTool(name = "update_book", description = "Update an existing book in the library")
     public String updateBook(Long bookId, String bookName, String author, Integer yearOfPublishing, Double price) {
         try {
             if (bookId == null || bookId <= 0) {
@@ -106,7 +105,7 @@ public class BookTool {
     }
     
    // @McpPrompt(name = "my-prompt", description = "Give me a summary of my book collection")
-    @Tool(name = "get_all_books", description = "Get all books in the library")
+    @McpTool(name = "get_all_books", description = "Get all books in the library")
     public String getAllBooks() {
         try {
             List<Book> books = bookService.getAllBooks();
@@ -129,7 +128,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "get_book_by_id", description = "Get a specific book by its ID")
+    @McpTool(name = "get_book_by_id", description = "Get a specific book by its ID")
     public String getBookById(Long bookId) {
         try {
             if (bookId == null || bookId <= 0) {
@@ -151,7 +150,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "search_books_by_name", description = "Search books by book name (partial match)")
+    @McpTool(name = "search_books_by_name", description = "Search books by book name (partial match)")
     public String searchBooksByName(String bookName) {
         try {
             if (bookName == null || bookName.trim().isEmpty()) {
@@ -178,7 +177,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "search_books_by_author", description = "Search books by author name (partial match)")
+    @McpTool(name = "search_books_by_author", description = "Search books by author name (partial match)")
     public String searchBooksByAuthor(String author) {
         try {
             if (author == null || author.trim().isEmpty()) {
@@ -205,7 +204,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "get_books_by_year", description = "Get books published in a specific year")
+    @McpTool(name = "get_books_by_year", description = "Get books published in a specific year")
     public String getBooksByYear(Integer year) {
         try {
             if (year == null || year <= 0) {
@@ -231,7 +230,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "get_books_by_price_range", description = "Get books within a specific price range")
+    @McpTool(name = "get_books_by_price_range", description = "Get books within a specific price range")
     public String getBooksByPriceRange(Double minPrice, Double maxPrice) {
         try {
             if (minPrice == null || minPrice < 0) {
@@ -266,7 +265,7 @@ public class BookTool {
         }
     }
     
-    @Tool(name = "get_library_stats", description = "Get statistics about the library")
+    @McpTool(name = "get_library_stats", description = "Get statistics about the library")
     public String getLibraryStats() {
         try {
             long totalBooks = bookService.getTotalBooksCount();
